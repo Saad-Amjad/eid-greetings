@@ -6,6 +6,13 @@ const promise5 = Promise.resolve('Stay Home and Stay Safe.');
 
 const promises = [promise1, promise2, promise3, promise4, promise5];
 
-Promise.allSettled(promises).
-    then((results) => results.forEach((result) => console.log(result['value'])));
+(async () => {
+    try {
+        const result = await Promise.allSettled(promises);
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+})();
+
 
